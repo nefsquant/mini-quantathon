@@ -1,0 +1,9 @@
+{"line":1,"result":"configured"}
+{"line":2,"result":"replaced"}
+{"line":3,"result":"replaced"}
+{"line":4,"result":"quote","symbol":"ALPHA","bid":{"price":100,"qty":7,"venues":["X","Y"]},"ask":{"price":102,"qty":2,"venues":["Y"]},"spread":2,"books":[{"venue":"X","status":"live","seq":1},{"venue":"Y","status":"live","seq":7}]}
+{"line":5,"result":"applied"}
+{"line":6,"result":"ignored_old"}
+{"line":7,"result":"quote","symbol":"ALPHA","bid":{"price":101,"qty":6,"venues":["X"]},"ask":{"price":102,"qty":2,"venues":["Y"]},"spread":1,"books":[{"venue":"X","status":"live","seq":2},{"venue":"Y","status":"live","seq":7}]}
+{"line":8,"result":"quote","symbol":"ALPHA","bid":{"price":101,"qty":6,"venues":["X"]},"ask":{"price":103,"qty":1,"venues":["X"]},"spread":2,"books":[{"venue":"X","status":"live","seq":2},{"venue":"Y","status":"stale","seq":7}]}
+{"line":9,"result":"quote","symbol":"ALPHA","bid":null,"ask":null,"spread":null,"books":[{"venue":"X","status":"stale","seq":2},{"venue":"Y","status":"stale","seq":7}]}

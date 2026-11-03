@@ -1,0 +1,5 @@
+{"type":"delta","t":13,"venue":"X","symbol":"ALPHA","seq":3,"bids":[[101,0],[102,5]],"asks":[]}
+{"type":"query","t":13,"symbol":"ALPHA"}
+{"type":"history","t":13,"symbol":"ALPHA","from_t":10,"to_t":20,"after_line":5,"limit":10}
+{"type":"checkpoint","t":13}
+{"type":"history","t":13,"symbol":"ALPHA","from_t":10,"to_t":20,"after_line":9,"limit":10}

@@ -1,0 +1,5 @@
+{"line":16,"result":"applied"}
+{"line":17,"result":"quote","symbol":"ALPHA","bid":{"price":102,"qty":5,"venues":["X"]},"ask":{"price":103,"qty":4,"venues":["X"]},"spread":1,"books":[{"venue":"X","status":"live","seq":3},{"venue":"Y","status":"uninitialised","seq":null}]}
+{"line":18,"result":"history","generation":3,"rows":[{"line":9,"t":11,"symbol":"ALPHA","bid":{"price":101,"qty":3,"venues":["X"]},"ask":{"price":103,"qty":4,"venues":["X"]},"spread":2}]}
+{"line":19,"result":"checkpointed","generation":4,"through_line":19,"rows":5}
+{"line":20,"result":"history","generation":4,"rows":[{"line":17,"t":13,"symbol":"ALPHA","bid":{"price":102,"qty":5,"venues":["X"]},"ask":{"price":103,"qty":4,"venues":["X"]},"spread":1}]}

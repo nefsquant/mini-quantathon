@@ -1,0 +1,9 @@
+{"type":"config","venues":["X","Y"],"symbols":["ALPHA"],"stale_ms":10,"partition_ms":10}
+{"type":"snapshot","t":0,"venue":"X","symbol":"ALPHA","seq":1,"bids":[[100,3]],"asks":[[103,4]]}
+{"type":"snapshot","t":0,"venue":"Y","symbol":"ALPHA","seq":7,"bids":[[100,4]],"asks":[[102,2]]}
+{"type":"query","t":0,"symbol":"ALPHA"}
+{"type":"delta","t":5,"venue":"X","symbol":"ALPHA","seq":2,"bids":[[100,0],[101,6]],"asks":[[103,1]]}
+{"type":"delta","t":6,"venue":"X","symbol":"ALPHA","seq":2,"bids":[[999,99]],"asks":[]}
+{"type":"query","t":10,"symbol":"ALPHA"}
+{"type":"query","t":11,"symbol":"ALPHA"}
+{"type":"query","t":16,"symbol":"ALPHA"}

@@ -1,0 +1,4 @@
+{"line":3,"t":9,"symbol":"ALPHA","bid":{"price":100,"qty":2,"venues":["X"]},"ask":{"price":103,"qty":4,"venues":["X"]},"spread":3}
+{"line":5,"t":10,"symbol":"ALPHA","bid":{"price":100,"qty":2,"venues":["X"]},"ask":{"price":103,"qty":4,"venues":["X"]},"spread":3}
+{"line":9,"t":11,"symbol":"ALPHA","bid":{"price":101,"qty":3,"venues":["X"]},"ask":{"price":103,"qty":4,"venues":["X"]},"spread":2}
+{"line":11,"t":11,"symbol":"BETA","bid":null,"ask":null,"spread":null}

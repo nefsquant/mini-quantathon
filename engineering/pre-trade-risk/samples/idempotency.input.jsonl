@@ -1,0 +1,14 @@
+{"type":"init","event_id":"i","symbols":[{"symbol":"BETA","reference_price":200},{"symbol":"ALPHA","reference_price":100}],"limits":{"max_order_qty":10,"max_order_notional":1000,"max_abs_position":10,"max_gross_exposure":1000}}
+{"type":"new","event_id":"r1","order_id":"o1","symbol":"ALPHA","side":"buy","qty":11,"price":10}
+{"type":"limits","event_id":"l1","limits":{"max_order_qty":20,"max_order_notional":2000,"max_abs_position":20,"max_gross_exposure":3000}}
+{"type":"new","event_id":"r1","order_id":"o1","symbol":"ALPHA","side":"buy","qty":11,"price":10}
+{"type":"new","event_id":"n1","order_id":"o1","symbol":"ALPHA","side":"buy","qty":4,"price":100}
+{"type":"query","event_id":"q1"}
+{"type":"fill","event_id":"f1","order_id":"o1","qty":2}
+{"type":"query","event_id":"q1"}
+{"type":"new","event_id":"n1","order_id":"o1","symbol":"ALPHA","side":"buy","qty":5,"price":100}
+{"type":"cancel","event_id":"c1","order_id":"o1"}
+{"type":"new","event_id":"n2","order_id":"o1","symbol":"ALPHA","side":"sell","qty":1,"price":100}
+{"type":"fill","event_id":"f1","order_id":"o1","qty":2}
+{"type":"query","event_id":"q2"}
+{"type":"init","event_id":"i","symbols":[{"symbol":"ALPHA","reference_price":100},{"symbol":"BETA","reference_price":200}],"limits":{"max_order_qty":10,"max_order_notional":1000,"max_abs_position":10,"max_gross_exposure":1000}}

@@ -1,0 +1,16 @@
+{"event_id":"i","status":"accepted"}
+{"event_id":"n1","status":"accepted"}
+{"event_id":"q1","status":"accepted","state":{"limits":{"max_order_qty":10,"max_order_notional":1000,"max_abs_position":10,"max_gross_exposure":200},"gross_exposure":40,"positions":[{"symbol":"ALPHA","position":0,"buy_remaining":4,"sell_remaining":0}],"orders":[{"order_id":"b","symbol":"ALPHA","side":"buy","remaining":4,"price":10}]}}
+{"event_id":"f1","status":"accepted"}
+{"event_id":"q2","status":"accepted","state":{"limits":{"max_order_qty":10,"max_order_notional":1000,"max_abs_position":10,"max_gross_exposure":200},"gross_exposure":220,"positions":[{"symbol":"ALPHA","position":2,"buy_remaining":2,"sell_remaining":0}],"orders":[{"order_id":"b","symbol":"ALPHA","side":"buy","remaining":2,"price":10}]}}
+{"event_id":"n2","status":"rejected","reason":"gross_exposure"}
+{"event_id":"f2","status":"rejected","reason":"insufficient_remaining"}
+{"event_id":"c1","status":"accepted"}
+{"event_id":"n3","status":"rejected","reason":"gross_exposure"}
+{"event_id":"l1","status":"accepted"}
+{"event_id":"n4","status":"accepted"}
+{"event_id":"f3","status":"accepted"}
+{"event_id":"l2","status":"accepted"}
+{"event_id":"c2","status":"rejected","reason":"order_closed"}
+{"event_id":"n5","status":"rejected","reason":"order_qty"}
+{"event_id":"q3","status":"accepted","state":{"limits":{"max_order_qty":0,"max_order_notional":0,"max_abs_position":0,"max_gross_exposure":0},"gross_exposure":100,"positions":[{"symbol":"ALPHA","position":1,"buy_remaining":0,"sell_remaining":0}],"orders":[]}}
