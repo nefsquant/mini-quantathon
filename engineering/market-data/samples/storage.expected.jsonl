@@ -1,0 +1,17 @@
+{"line":1,"result":"configured"}
+{"line":2,"result":"replaced"}
+{"line":3,"result":"quote","symbol":"ALPHA","bid":{"price":100,"qty":2,"venues":["X"]},"ask":{"price":103,"qty":4,"venues":["X"]},"spread":3,"books":[{"venue":"X","status":"live","seq":1},{"venue":"Y","status":"uninitialised","seq":null}]}
+{"line":4,"result":"history","generation":0,"rows":[]}
+{"line":5,"result":"quote","symbol":"ALPHA","bid":{"price":100,"qty":2,"venues":["X"]},"ask":{"price":103,"qty":4,"venues":["X"]},"spread":3,"books":[{"venue":"X","status":"live","seq":1},{"venue":"Y","status":"uninitialised","seq":null}]}
+{"line":6,"result":"checkpointed","generation":1,"through_line":6,"rows":2}
+{"line":7,"result":"history","generation":1,"rows":[{"line":3,"t":9,"symbol":"ALPHA","bid":{"price":100,"qty":2,"venues":["X"]},"ask":{"price":103,"qty":4,"venues":["X"]},"spread":3}]}
+{"line":8,"result":"applied"}
+{"line":9,"result":"quote","symbol":"ALPHA","bid":{"price":101,"qty":3,"venues":["X"]},"ask":{"price":103,"qty":4,"venues":["X"]},"spread":2,"books":[{"venue":"X","status":"live","seq":2},{"venue":"Y","status":"uninitialised","seq":null}]}
+{"line":10,"result":"history","generation":1,"rows":[{"line":3,"t":9,"symbol":"ALPHA","bid":{"price":100,"qty":2,"venues":["X"]},"ask":{"price":103,"qty":4,"venues":["X"]},"spread":3},{"line":5,"t":10,"symbol":"ALPHA","bid":{"price":100,"qty":2,"venues":["X"]},"ask":{"price":103,"qty":4,"venues":["X"]},"spread":3}]}
+{"line":11,"result":"quote","symbol":"BETA","bid":null,"ask":null,"spread":null,"books":[{"venue":"X","status":"uninitialised","seq":null},{"venue":"Y","status":"uninitialised","seq":null}]}
+{"line":12,"result":"checkpointed","generation":2,"through_line":12,"rows":4}
+{"line":13,"result":"history","generation":2,"rows":[{"line":5,"t":10,"symbol":"ALPHA","bid":{"price":100,"qty":2,"venues":["X"]},"ask":{"price":103,"qty":4,"venues":["X"]},"spread":3}]}
+{"line":14,"result":"history","generation":2,"rows":[{"line":11,"t":11,"symbol":"BETA","bid":null,"ask":null,"spread":null}]}
+{"line":15,"result":"checkpointed","generation":3,"through_line":15,"rows":4}
+{"line":16,"result":"gap"}
+{"line":17,"result":"quote","symbol":"ALPHA","bid":null,"ask":null,"spread":null,"books":[{"venue":"X","status":"gap","seq":2},{"venue":"Y","status":"uninitialised","seq":null}]}

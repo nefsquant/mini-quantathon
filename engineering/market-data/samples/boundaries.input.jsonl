@@ -1,0 +1,9 @@
+{"type":"config","venues":["Z","X","A"],"symbols":["BETA","ALPHA"],"stale_ms":0,"partition_ms":10}
+{"type":"snapshot","t":0,"venue":"Z","symbol":"BETA","seq":0,"bids":[[90,4],[100,1000000000]],"asks":[]}
+{"type":"snapshot","t":0,"venue":"A","symbol":"BETA","seq":0,"bids":[[100,1000000000]],"asks":[[100,1000000000]]}
+{"type":"snapshot","t":0,"venue":"X","symbol":"BETA","seq":0,"bids":[[100,1000000000]],"asks":[]}
+{"type":"query","t":0,"symbol":"BETA"}
+{"type":"query","t":0,"symbol":"ALPHA"}
+{"type":"query","t":1,"symbol":"BETA"}
+{"type":"delta","t":1,"venue":"A","symbol":"BETA","seq":1,"bids":[],"asks":[]}
+{"type":"query","t":1,"symbol":"BETA"}

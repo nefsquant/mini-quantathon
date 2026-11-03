@@ -1,0 +1,9 @@
+{"line":1,"result":"configured"}
+{"line":2,"result":"replaced"}
+{"line":3,"result":"replaced"}
+{"line":4,"result":"replaced"}
+{"line":5,"result":"quote","symbol":"BETA","bid":{"price":100,"qty":3000000000,"venues":["A","X","Z"]},"ask":{"price":100,"qty":1000000000,"venues":["A"]},"spread":0,"books":[{"venue":"A","status":"live","seq":0},{"venue":"X","status":"live","seq":0},{"venue":"Z","status":"live","seq":0}]}
+{"line":6,"result":"quote","symbol":"ALPHA","bid":null,"ask":null,"spread":null,"books":[{"venue":"A","status":"uninitialised","seq":null},{"venue":"X","status":"uninitialised","seq":null},{"venue":"Z","status":"uninitialised","seq":null}]}
+{"line":7,"result":"quote","symbol":"BETA","bid":null,"ask":null,"spread":null,"books":[{"venue":"A","status":"stale","seq":0},{"venue":"X","status":"stale","seq":0},{"venue":"Z","status":"stale","seq":0}]}
+{"line":8,"result":"applied"}
+{"line":9,"result":"quote","symbol":"BETA","bid":{"price":100,"qty":1000000000,"venues":["A"]},"ask":{"price":100,"qty":1000000000,"venues":["A"]},"spread":0,"books":[{"venue":"A","status":"live","seq":1},{"venue":"X","status":"stale","seq":0},{"venue":"Z","status":"stale","seq":0}]}

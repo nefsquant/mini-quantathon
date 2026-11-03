@@ -1,0 +1,13 @@
+{"type":"config","venues":["X"],"symbols":["ALPHA"],"stale_ms":5,"partition_ms":10}
+{"type":"delta","t":0,"venue":"X","symbol":"ALPHA","seq":8,"bids":[],"asks":[]}
+{"type":"snapshot","t":1,"venue":"X","symbol":"ALPHA","seq":10,"bids":[[10,5]],"asks":[[11,6]]}
+{"type":"delta","t":2,"venue":"X","symbol":"ALPHA","seq":12,"bids":[[10,9]],"asks":[]}
+{"type":"delta","t":2,"venue":"X","symbol":"ALPHA","seq":10,"bids":[],"asks":[]}
+{"type":"delta","t":3,"venue":"X","symbol":"ALPHA","seq":11,"bids":[],"asks":[]}
+{"type":"snapshot","t":4,"venue":"X","symbol":"ALPHA","seq":9,"bids":[],"asks":[]}
+{"type":"query","t":9,"symbol":"ALPHA"}
+{"type":"snapshot","t":9,"venue":"X","symbol":"ALPHA","seq":10,"bids":[[12,2]],"asks":[[11,3]]}
+{"type":"query","t":9,"symbol":"ALPHA"}
+{"type":"delta","t":10,"venue":"X","symbol":"ALPHA","seq":11,"bids":[[12,0]],"asks":[[11,0]]}
+{"type":"query","t":10,"symbol":"ALPHA"}
+{"type":"query","t":16,"symbol":"ALPHA"}

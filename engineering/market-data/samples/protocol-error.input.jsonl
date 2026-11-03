@@ -1,0 +1,4 @@
+{"type":"config","venues":["X"],"symbols":["ALPHA"],"stale_ms":0,"partition_ms":10}
+{"type":"query","t":1,"symbol":"ALPHA"}
+{"type":"delta","t":0,"venue":"X","symbol":"ALPHA","seq":1,"bids":[],"asks":[]}
+{"type":"query","t":2,"symbol":"ALPHA"}
