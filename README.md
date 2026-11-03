@@ -1,25 +1,49 @@
-# NEFS Quant Division — QR Trading Challenge
+# NEFS Quant Warm-Up Competition
 
-Welcome to the NEFS Quantitative Research 2-hour trading challenge. Your objective is to discover statistical relationships and microstructure signals across **50 assets** (`NEFS`, `QUNT`, etc.) over **5 historical days** (`10,000` timestamps per day) and implement an algorithmic trading strategy in Python.
+Welcome to the NEFS Quant Competition. This repository contains both parallel competition tracks:
 
-At the end of the 2 hours, your submitted `Trader` class will be evaluated on **unseen future days** drawn from the same market environment.
+| Track | Directory | Description | Languages / Tooling |
+| :--- | :--- | :--- | :--- |
+| **Quantitative Research (QR)** | [`research/`](research/) | Uncover statistical relationships across 50 assets and develop an algorithmic strategy evaluated on unseen market days. | Python 3 (`uv run`) |
+| **Software Engineering (DEV)** | [`engineering/`](engineering/) | Build high-performance financial systems: [Market Data Pipeline](engineering/market-data/SPEC.md) and/or [Pre-Trade Risk Engine](engineering/pre-trade-risk/SPEC.md). | Python, Go, C, C++, Rust |
 
 ---
 
 ## Repository Structure
 
-- `research/datamodel.py` — Core data structures (`TradingState`, `Order`, `OrderDepth`, `Trade`). **Do not modify.**
-- `research/template.py` — Starter strategy file containing the `Trader` class.
-- `research/backtester.py` — Local L2 orderbook + trade-print backtester and tear-sheet generator.
-- `research/data/prices/prices_day_1..5.csv` — 3-level L2 orderbook snapshots (`500,000` rows/day).
-- `research/data/trades/trades_day_1..5.csv` — Historical market trades executed each day.
+```text
+.
+├── README.md
+├── pyproject.toml
+├── uv.lock
+├── research/                        # Quantitative Research Track
+│   ├── datamodel.py                 # Core data structures (Do not modify)
+│   ├── template.py                  # Starter strategy file (Trader class)
+│   ├── backtester.py                # Local L2 orderbook backtester & tear sheet
+│   └── data/
+│       ├── prices/                  # 3-level L2 snapshots (Days 1–5)
+│       └── trades/                  # Historical market trades (Days 1–5)
+└── engineering/                     # Software Engineering Track
+    ├── README.md, EVALUATION.md     # DEV track rules, environment & rubrics
+    ├── market-data/                 # Challenge A: Market Data Pipeline
+    │   ├── SPEC.md, SCORING.md, DATA.md, STORAGE.md
+    │   ├── generate.py, datasets/, samples/
+    └── pre-trade-risk/              # Challenge B: Pre-Trade Risk Engine
+        ├── SPEC.md, SCORING.md, DATA.md
+        ├── generate.py, datasets/, samples/
+```
 
 ---
 
-## Quick Start
+# Track 1: Quantitative Research (QR) Trading Challenge
 
-### 1. Run the Backtester
-Run `backtester.py` on one or more days using `uv run`:
+Discover statistical relationships and microstructure signals across **50 assets** (`NEFS`, `QUNT`, etc.) over **5 historical days** (`10,000` timestamps per day) and implement an algorithmic trading strategy in Python.
+
+At the end of the competition, your submitted `Trader` class will be evaluated on **unseen future days** drawn from the same market environment.
+
+### Quick Start
+
+Run `research/backtester.py` using `uv run` on one or more days:
 
 ```bash
 # Run on Day 1:
@@ -35,8 +59,8 @@ uv run research/backtester.py research/template.py --days 4 5
 uv run research/backtester.py research/strat_v1.py research/strat_v2.py --days 4 5
 ```
 
-### 2. Writing Your Strategy (`template.py`)
-Your strategy file must define a `Trader` class with a `run(self, state: TradingState) -> Dict[Symbol, List[Order]]` method. The `Trader` instance persists in memory across timestamps, so you can store rolling state on `self`.
+### Writing Your Strategy (`research/template.py`)
+Your strategy file must define a `Trader` class with a `run(self, state: TradingState) -> Dict[Symbol, List[Order]]` method. The `Trader` instance persists in memory across timestamps, allowing you to store rolling state on `self`.
 
 ```python
 from typing import Dict, List
@@ -63,12 +87,10 @@ class Trader:
         return orders
 ```
 
----
-
-## Market & Execution Rules
+### Market & Execution Rules
 
 1. **Position Limits**: Every ticker has a hard position limit of **`±20` units**. If all orders submitted for a symbol on a single timestamp could breach `[-20, +20]` when added to your current position, that symbol's orders for that timestamp are rejected.
-2. **Order Lifecycle**: Unfilled orders do not carry over to the next timestamp; emit your desired orders on each call to `run(state)`.
+2. **Order Lifecycle**: Unfilled orders do not carry over to the next timestamp; emit desired orders on each call to `run(state)`.
 3. **Order Matching (Zero Fees)**:
    - **Taker Fills**: Buy orders with `price >= best_ask` (or sell orders with `price <= best_bid`) fill immediately against available volume in `state.order_depths[symbol]`.
    - **Maker Fills**: Remaining resting limit orders fill against `market_trades` at that timestamp whose trade price crosses or touches your order price.
@@ -80,26 +102,32 @@ class Trader:
    - **Composite Score**: Risk-adjusted score used for the final unseen-data leaderboard:
      $$\text{Score} = \text{PnL} \times (1 + 0.15 \times \text{clip}(\text{Sharpe}, -5, 10)) - 0.25 \times \text{MaxDD}$$
 
+### QR Dataset Schema
+
+- **`research/data/prices/prices_day_X.csv`** (Semicolon-delimited `;`):
+  `day`, `timestamp` (0–999,900 in steps of 100), `product`, `bid_price_1..3`, `bid_volume_1..3`, `ask_price_1..3`, `ask_volume_1..3`, `mid_price`.
+- **`research/data/trades/trades_day_X.csv`** (Semicolon-delimited `;`):
+  `timestamp`, `symbol`, `price`, `quantity`.
+
 ---
 
-## Dataset Schema
+# Track 2: Software Engineering (DEV) Challenges
 
-### `data/prices/prices_day_X.csv` (Semicolon-delimited `;`)
-| Column | Description |
-| :--- | :--- |
-| `day` | Day number (`1` to `5`) |
-| `timestamp` | Tick timestamp (`0` to `999,900` in steps of `100`) |
-| `product` | 4-letter ticker symbol (`50` unique symbols) |
-| `bid_price_1..3` | Top 3 bid price levels (empty if level has no liquidity) |
-| `bid_volume_1..3` | Volume available at each bid level (positive integer) |
-| `ask_price_1..3` | Top 3 ask price levels (empty if level has no liquidity) |
-| `ask_volume_1..3` | Volume available at each ask level (positive integer in CSV; negative in `OrderDepth.sell_orders`) |
-| `mid_price` | Reference mid-price for mark-to-market valuation |
+Build one or both independent systems from scratch. You are judged on correct behaviour, engineering decisions, and the evidence behind them. Full details, environment baselines, and rubrics are located in [`engineering/README.md`](engineering/README.md) and [`engineering/EVALUATION.md`](engineering/EVALUATION.md).
 
-### `data/trades/trades_day_X.csv` (Semicolon-delimited `;`)
-| Column | Description |
-| :--- | :--- |
-| `timestamp` | Tick timestamp (`0` to `999,900`) |
-| `symbol` | 4-letter ticker symbol |
-| `price` | Execution price |
-| `quantity` | Trade size |
+| Challenge | Languages | Main Problem | Specification |
+| :--- | :--- | :--- | :--- |
+| **A: Market Data Pipeline** | Python or Go | Consolidate imperfect feeds and publish a recoverable partitioned quote archive | [`SPEC.md`](engineering/market-data/SPEC.md), [`STORAGE.md`](engineering/market-data/STORAGE.md) |
+| **B: Pre-Trade Risk Engine** | C, C++, or Rust | Make stateful risk decisions that survive process termination | [`SPEC.md`](engineering/pre-trade-risk/SPEC.md) |
+
+### Engineering Rules & Submission
+
+- **Scoring**: Each challenge is worth 100 points (team total out of 200). A carefully tested single challenge can outscore two unreliable implementations.
+- **Timing**: 120-minute implementation window. All changes must be saved by the deadline.
+- **Baseline Environment**: Linux x86-64, Ubuntu 24.04, 1 allocated CPU core, 1 GiB process-tree RSS. Toolchains: Python 3.12, Go 1.22, GCC/G++ 13 (C17/C++20), Rust 1.75 (edition 2021).
+- **Deliverables**: Submissions must include:
+  - Source code and a `DESIGN.md` (~500–750 words).
+  - Executable offline `build.sh` and `run.sh` launchers.
+  - Standard JSON Lines I/O contracts:
+    - Challenge A: `./run.sh --data-dir /path/to/archive < input.jsonl > actual.jsonl`
+    - Challenge B: `./run.sh --state-dir /path/to/state < input.jsonl > actual.jsonl`
